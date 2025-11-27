@@ -1,14 +1,17 @@
 {
-	"required": true,
-	"package": "ua.borukva.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-      "ExampleMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
-	}
+  "required": true,
+  "package": "ua.borukva.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ExampleMixin"
+  ],
+  "server": [
+    "ServerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
 }
