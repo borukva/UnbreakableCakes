@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "ua.borukva.mixin",
+  "package": "ua.borukva.mod_template.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ExampleMixin"
