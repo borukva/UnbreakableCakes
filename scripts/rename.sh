@@ -13,7 +13,6 @@ NEW_NAME_UNDERSCORE="${NEW_NAME//-/_}"
 
 OLD_NAME="mod_template"
 OLD_NAME_DASH="template-mod"
-OLD_ROOT_NAME="mod-template"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
@@ -93,13 +92,23 @@ if [ -f "$README" ]; then
     > "$README"
 fi
 
+# Delete scripts directory (including this script)
+echo "Removing scripts directory..."
+rm -rf "$SCRIPT_DIR"
+
 # Rename root directory
 NEW_ROOT="$PARENT_DIR/$NEW_NAME"
 if [ "$PROJECT_ROOT" != "$NEW_ROOT" ]; then
     echo "Renaming root directory to $NEW_NAME..."
     cd "$PARENT_DIR"
-    mv "$PROJECT_ROOT" "$NEW_ROOT"
-    echo "Root directory renamed. New location: $NEW_ROOT"
+    if mv "$PROJECT_ROOT" "$NEW_ROOT" 2>/dev/null; then
+        echo "Root directory renamed. New location: $NEW_ROOT"
+    else
+        echo ""
+        echo "Failed to rename root directory. Please rename it manually:"
+        echo "  cd $PARENT_DIR && mv $(basename "$PROJECT_ROOT") $NEW_NAME"
+    fi
 fi
 
+echo ""
 echo "Done! Project renamed to '$NEW_NAME'"

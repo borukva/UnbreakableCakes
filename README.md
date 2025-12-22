@@ -13,6 +13,11 @@ Example:
 ./scripts/rename.sh my-cool-mod
 ```
 
+On some systems you may need sudo:
+```bash
+sudo ./scripts/rename.sh my-cool-mod
+```
+
 This will:
 - Rename the package from `ua.borukva.mod_template` to `ua.borukva.<new_name>`
 - Update `MOD_ID` in `ModInit.java`
@@ -21,5 +26,11 @@ This will:
 - Rename `template-mod.mixins.json` to `<new-name>.mixins.json`
 - Rename assets directory
 - Remove git remote origin
-- Rename the project root directory
 - Clear this README
+- Delete the scripts directory
+- Rename the root directory
+
+Note: Root directory renaming may fail on some systems (e.g., WSL). If it does, rename it manually:
+```bash
+mv mod-template <new-project-name>
+```
