@@ -1,12 +1,10 @@
 {
   "required": true,
-  "package": "ua.borukva.mod_template.mixin",
+  "package": "ua.borukva.UnbreakableCakes.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "ExampleMixin"
-  ],
   "server": [
-    "ServerMixin"
+    "CakeMixins$CakePropertiesMixin",
+    "CakeMixins$CakeBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

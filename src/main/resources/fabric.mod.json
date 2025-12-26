@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "template-mod",
+	"id": "unbreakable-cakes",
 	"version": "${version}",
-	"name": "Template Mod",
+	"name": "Unbreakable Cakes",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Borukva Team"
@@ -12,22 +12,22 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "ARR",
-	"icon": "assets/template-mod/icon.png",
+	"icon": "assets/UnbreakableCakes/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "ua.borukva.mod_template.ModInit"
+          "ua.borukva.UnbreakableCakes.ModInit"
 		],
 		"fabric-datagen": [
-          "ua.borukva.mod_template.ModDataGenerator"
+          "ua.borukva.UnbreakableCakes.ModDataGenerator"
 		]
 	},
 	"mixins": [
-		"template-mod.mixins.json"
+		"UnbreakableCakes.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.10",
+		"minecraft": ">=1.21.8",
 		"java": ">=21",
 		"fabric-api": "*"
 	},

@@ -1,4 +1,4 @@
-package ua.borukva.mod_template;
+package ua.borukva.UnbreakableCakes;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
