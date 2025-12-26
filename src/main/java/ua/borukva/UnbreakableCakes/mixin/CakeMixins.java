@@ -22,13 +22,15 @@ public class CakeMixins {
   @Mixin(Blocks.class)
   public static class CakePropertiesMixin {
     @ModifyVariable(
-        method = "register(Lnet/minecraft/resources/ResourceKey;Ljava/util/function/Function;Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)Lnet/minecraft/world/level/block/Block;",
+        method =
+            "register(Lnet/minecraft/resources/ResourceKey;Ljava/util/function/Function;Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)Lnet/minecraft/world/level/block/Block;",
         at = @At(value = "HEAD"),
         argsOnly = true,
-        ordinal = 0
-    )
-    private static Properties replaceCakeProperties(Properties properties,
-        ResourceKey<Block> resourceKey, Function<Properties, Block> function) {
+        ordinal = 0)
+    private static Properties replaceCakeProperties(
+        Properties properties,
+        ResourceKey<Block> resourceKey,
+        Function<Properties, Block> function) {
       if (resourceKey.location().getPath().equals("cake")) {
         return BlockBehaviour.Properties.of()
             .strength(0.5F)
@@ -42,9 +44,12 @@ public class CakeMixins {
   @Mixin(CakeBlock.class)
   public static class CakeBlockMixin {
     @WrapOperation(
-        method = "canSurvive(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;isSolid()Z")
-    )
+        method =
+            "canSurvive(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z",
+        at =
+            @At(
+                value = "INVOKE",
+                target = "Lnet/minecraft/world/level/block/state/BlockState;isSolid()Z"))
     private static boolean replaceCakeProperties(BlockState instance, Operation<Boolean> original) {
       return true;
     }
